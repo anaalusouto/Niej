@@ -75,10 +75,7 @@ function mostrarPergunta() {
 function responder(resposta) {
     if (resposta === perguntas[indicePerguntaAtual].resposta) {
         pontos++;
-        resultadoElemento.innerText = "Resposta correta!";
-    } else {
-        resultadoElemento.innerText = "Resposta incorreta!";
-    }
+    } 
 
     proximoBotao.style.display = "block";
 }
