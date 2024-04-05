@@ -78,6 +78,9 @@ function responder(resposta) {
       
     } 
 
+    proximoBotao.style.display = "block";
+}
+
 proximoBotao.addEventListener("click", () => {
     indicePerguntaAtual++;
     if (indicePerguntaAtual < perguntas.length) {
@@ -108,3 +111,4 @@ document.getElementById('adicionar-ranking').addEventListener('click', () => {
    
     adicionarUsuario(nome, projeto);
 });
+
