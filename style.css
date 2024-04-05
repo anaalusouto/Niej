@@ -1,0 +1,96 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('niej.png'); /* Substitua 'sua-imagem.jpg' pelo caminho para sua imagem */
+    background-size: cover;
+    background-position: center;
+}
+
+
+.container {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+#jogo-container {
+    background: linear-gradient(to bottom, #d881e4, #c79c0e);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+}
+
+#pergunta {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+#opcoes button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    background: linear-gradient(to bottom, #7b94e7, #7b94e7);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#opcoes button:hover {
+    background: linear-gradient(to bottom, #00ffcc, #00ffcc);
+}
+
+#proximo {
+    display: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    background: linear-gradient(to bottom, #f39c12, #e67e22);
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#proximo:hover {
+    background: linear-gradient(to bottom, #d35400, #e74c3c);
+}
+
+#resultado {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #fff;
+}
+
+.welcome-container {
+    background: linear-gradient(to bottom, #e74c3c, #c0392b);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.welcome-container h1 {
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.welcome-container p {
+    color: #fff;
+}
