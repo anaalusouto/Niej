@@ -75,10 +75,8 @@ function mostrarPergunta() {
 function responder(resposta) {
     if (resposta === perguntas[indicePerguntaAtual].resposta) {
         pontos++;
+      
     } 
-
-    proximoBotao.style.display = "block";
-}
 
 proximoBotao.addEventListener("click", () => {
     indicePerguntaAtual++;
