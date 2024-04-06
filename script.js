@@ -53,6 +53,7 @@ const perguntas = [
 
 let indicePerguntaAtual = 0;
 let pontos = 0;
+let respostaSelecionada = null; // Armazena a resposta selecionada
 
 const perguntaElemento = document.getElementById("pergunta");
 const opcoesElemento = document.getElementById("opcoes");
@@ -67,26 +68,48 @@ function mostrarPergunta() {
     pergunta.opcoes.forEach(opcao => {
         const botao = document.createElement("button");
         botao.innerText = opcao;
-        botao.addEventListener("click", () => responder(opcao[0]));
+        botao.addEventListener("click", (event) => responder(opcao, event.target));
         opcoesElemento.appendChild(botao);
     });
 }
 
-function responder(resposta) {
-    if (resposta === perguntas[indicePerguntaAtual].resposta) {
-        pontos++;
-      
-    } 
+function responder(resposta, botaoSelecionado) {
+    if (respostaSelecionada === null) {
+        respostaSelecionada = resposta;
+        const opcoesBotoes = opcoesElemento.getElementsByTagName('button');
+        for (let i = 0; i < opcoesBotoes.length; i++) {
+            opcoesBotoes[i].disabled = true; // Desabilita todos os botões de opção
+        }
 
-    proximoBotao.style.display = "block";
+        // Destaca a opção selecionada visualmente
+        botaoSelecionado.classList.add('selecionado');
+
+        // Verifica se a resposta está correta
+        if (respostaSelecionada === perguntas[indicePerguntaAtual].resposta) {
+            pontos++;
+            resultadoElemento.innerText = "Resposta correta!";
+        } else {
+            resultadoElemento.innerText = "Resposta incorreta!";
+        }
+
+        proximoBotao.style.display = "block";
+    }
 }
 
 proximoBotao.addEventListener("click", () => {
     indicePerguntaAtual++;
+    respostaSelecionada = null; // Reseta a resposta selecionada para a próxima pergunta
     if (indicePerguntaAtual < perguntas.length) {
         mostrarPergunta();
         proximoBotao.style.display = "none";
         resultadoElemento.innerText = "";
+
+        // Remove o destaque da opção selecionada
+        const opcoesBotoes = opcoesElemento.getElementsByTagName('button');
+        for (let i = 0; i < opcoesBotoes.length; i++) {
+            opcoesBotoes[i].classList.remove('selecionado');
+            opcoesBotoes[i].disabled = false; // Habilita os botões de opção
+        }
     } else {
         perguntaElemento.innerText = "Fim do Jogo!";
         opcoesElemento.innerHTML = "";
@@ -96,19 +119,3 @@ proximoBotao.addEventListener("click", () => {
 });
 
 mostrarPergunta();
-
-// Função para adicionar um jogador ao ranking e salvar localmente
-function adicionarUsuario(nome, projeto) {
-    const usuario = { nome, projeto };
-    // Aqui você pode adicionar lógica adicional, como enviar os dados do usuário para um servidor, etc.
-    console.log('Novo usuário adicionado:', usuario);
-}
-
-// Adicionar evento de clique ao botão "Adicionar ao Ranking"
-document.getElementById('adicionar-ranking').addEventListener('click', () => {
-    const nome = document.getElementById('nome').value;
-    const projeto = document.getElementById('projeto').value;
-   
-    adicionarUsuario(nome, projeto);
-});
-
