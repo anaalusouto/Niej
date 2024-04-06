@@ -12,6 +12,12 @@ body {
     background-position: center;
 }
 
+/* Adicione esta classe ao seu CSS */
+#opcoes button.selecionado {
+    background-color: #feffff; /* Cor de fundo para a opção selecionada */
+    color: #0400ff; /* Cor do texto para a opção selecionada */
+}
+
 
 .container {
     margin: 0 auto;
@@ -90,6 +96,11 @@ h1, h2 {
     margin-bottom: 20px;
     color: #fff;
 }
+
+.welcome-container p {
+    color: #fff;
+}
+
 
 .welcome-container p {
     color: #fff;
